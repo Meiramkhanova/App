@@ -3,12 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 
-Route::get('/',function(){
-    return redirect()->route('post.index');
-});
+Route::get('/',[PostController::class ,'main'])->name('post.main');
+Route::get('/band',[PostController::class ,'band'])->name('post.band');
+Route::get('/tour',[PostController::class ,'tour'])->name('post.tour');
+Route::get('/contact',[PostController::class ,'contact'])->name('post.contact');
 
-Route::get('/post', [PostController::class, 'index'])->name('post.index');
-Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
-Route::post('/post',[ PostController:: class,'store'])->name('post.store');
-Route::get('/post/{id}', [PostController::class, 'show'])->name('post.show');
+
 
